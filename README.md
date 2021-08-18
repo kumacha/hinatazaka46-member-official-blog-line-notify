@@ -1,29 +1,34 @@
-# gcf-packs
-Library packs for google cloud functions
+## 日向坂46ブログ通知
+LINE Notify で推しメンのブログ通知を受け取ることができます。
 
-## How to start
+## 実行内容
 
-Upload ZIP directly to your cloud function or to Google Cloud Storage
+bs4とseleniumでスクレイピングを行い、ブログ情報を取得し、それをLINE Notifyを通じて通知します。<br/>
+Google Cloud Platformを利用して1時間に1回、スクレイピングを定期実行し、1時間以内に投稿されたブログを通知します。
 
-## Current packs
+## フォーク元について
+ryfeusさんのgcf-packsを利用し、GCP環境でのスクレイピング実行環境が楽なライブラリを利用させていただきました。
 
-### Selenium Chromium
+## 使用言語・ライブラリ等
+* Python 3.7.1
+* BeautifulSoup4
+* selenium
+* requests
+* dotenv-python
+* jupyter notebook
+* LINE Notify API
+* Google Cloud Platfrom
+  * Cloud Scheduler
+  * Cloud Pub/Sub
+  * Cloud Functions
+  * Cloud Shell
 
-#### Intro
 
-Selenium on Chromium. In fact - a ready-made tool for web scraping. For example, the demo now opens a random page in Wikipedia and sends its header.
+## 公式アプリとの差異
 
-Useful for web testing and scraping.
+公式アプリでもブログの通知は来ます。ただ、内容がわからないのと写真が一枚も見えません。<br/>
+そこで通知をLINEにまとめ、LINE内でタイトルと記事の写真を見ることができたら良いと思い、実装しました。
 
-#### Demo
+## LINE Notifyの画面
+![IMG_1328](https://user-images.githubusercontent.com/68047170/129588174-75bc6801-6db0-446f-8159-b2578d78a874.jpg)
 
-Current demo opens random page from wiki (https://en.wikipedia.org/wiki/Special:Random) and prints title. Keep in mind that you have to unpack https://github.com/ryfeus/gcf-packs/blob/master/selenium_chrome/source/headless-chromium.zip before modifying your package (github doesn't allow to upload files bigger than 100 mb)
-
-#### Documentation
-
-https://selenium-python.readthedocs.io/
-
-#### Used code and documentation
-
-https://github.com/adieuadieu/serverless-chrome
-https://medium.com/clog/running-selenium-and-headless-chrome-on-aws-lambda-fb350458e4df
