@@ -3,16 +3,12 @@ LINE Notify で推しメンのブログ通知を受け取ることができま�
 
 ## 実行内容
 
-bs4とseleniumでスクレイピングを行い、ブログ情報を取得し、それをLINE Notifyを通じて通知します。<br/>
+bs4でスクレイピングを行い、ブログ情報を取得し、それをLINE Notifyを通じて通知します。<br/>
 Google Cloud Platformを利用して1時間に1回、スクレイピングを定期実行し、1時間以内に投稿されたブログを通知します。
-
-## フォーク元について
-ryfeusさんのgcf-packsを利用し、GCP環境でのスクレイピング実行環境が楽なライブラリを利用させていただきました。
 
 ## 使用言語・ライブラリ等
 * Python 3.7.1
 * BeautifulSoup4
-* selenium
 * requests
 * dotenv-python
 * jupyter notebook
